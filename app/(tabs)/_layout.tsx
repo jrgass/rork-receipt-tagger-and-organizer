@@ -1,6 +1,7 @@
 import { Tabs } from "expo-router";
 import { Receipt, FolderOpen } from "lucide-react-native";
 import React from "react";
+import { Image, StyleSheet } from "react-native";
 
 function RootLayoutNav() {
   return (
@@ -18,6 +19,13 @@ function RootLayoutNav() {
           backgroundColor: '#4F46E5',
         },
         headerTintColor: '#FFFFFF',
+        headerTitle: () => (
+          <Image 
+            source={{ uri: 'https://rork.app/pa/8urgvidczzddmouwuecy4/alliance_logo' }}
+            style={styles.logo}
+            resizeMode="contain"
+          />
+        ),
       }}
     >
       <Tabs.Screen
@@ -37,5 +45,12 @@ function RootLayoutNav() {
     </Tabs>
   );
 }
+
+const styles = StyleSheet.create({
+  logo: {
+    width: 120,
+    height: 36,
+  },
+});
 
 export default RootLayoutNav;
