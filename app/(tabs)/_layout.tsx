@@ -21,7 +21,7 @@ function RootLayoutNav() {
         headerTintColor: '#FFFFFF',
         headerTitle: () => (
           <Image 
-            source={{ uri: 'https://rork.app/pa/8urgvidczzddmouwuecy4/alliance_logo' }}
+            source={{ uri: 'https://pub-e001eb4506b145aa938b5d3badbff6a5.r2.dev/attachments/q3jw4is11k0dook28za4w' }}
             style={styles.logo}
             resizeMode="contain"
           />

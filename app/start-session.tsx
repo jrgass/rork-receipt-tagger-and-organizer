@@ -1,7 +1,7 @@
-import { StyleSheet, Text, View, TouchableOpacity, TextInput, Modal, Keyboard } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, TextInput, Modal, Keyboard, Image } from "react-native";
 import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 import { useState, useEffect } from "react";
-import { router } from "expo-router";
+import { router, Stack } from "expo-router";
 import { useSession } from "@/hooks/session-store";
 import { ChevronDown, User, MapPin, Calendar, KeyboardIcon } from "lucide-react-native";
 
@@ -60,8 +60,22 @@ export default function StartSessionScreen() {
   };
 
   return (
-    <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
-      <View style={styles.header}>
+    <>
+      <Stack.Screen options={{ 
+        headerStyle: {
+          backgroundColor: '#4F46E5',
+        },
+        headerTintColor: '#FFFFFF',
+        headerTitle: () => (
+          <Image 
+            source={{ uri: 'https://pub-e001eb4506b145aa938b5d3badbff6a5.r2.dev/attachments/q3jw4is11k0dook28za4w' }}
+            style={styles.logo}
+            resizeMode="contain"
+          />
+        ),
+      }} />
+      <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
+        <View style={styles.header}>
         <Text style={styles.title}>Start New Session</Text>
         <Text style={styles.subtitle}>Enter your information to begin</Text>
       </View>
@@ -193,11 +207,16 @@ export default function StartSessionScreen() {
           </View>
         </View>
       </Modal>
-    </SafeAreaView>
+      </SafeAreaView>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
+  logo: {
+    width: 120,
+    height: 36,
+  },
   container: {
     flex: 1,
     backgroundColor: '#F9FAFB',
